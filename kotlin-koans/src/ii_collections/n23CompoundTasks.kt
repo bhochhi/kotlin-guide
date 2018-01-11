@@ -2,7 +2,7 @@ package ii_collections
 
 fun Shop.getCustomersWhoOrderedProduct(product: Product): Set<Customer> {
     // Return the set of customers who ordered the specified product
-    todoCollectionTask()
+   return this.customers.filter { it.orderedProducts.contains(product) }
 }
 
 fun Customer.getMostExpensiveDeliveredProduct(): Product? {
