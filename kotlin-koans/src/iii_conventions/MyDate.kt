@@ -10,7 +10,6 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
 }
 
 operator fun MyDate.rangeTo(other: MyDate): DateRange {
-
    return DateRange(this,other)
 
 }
@@ -32,8 +31,11 @@ class DateRange(override  val start: MyDate, override val endInclusive: MyDate) 
 }
 
 class DateIterator(val dateRange: DateRange) : Iterator<MyDate> {
+
+
     var current: MyDate = dateRange.start
     override fun next(): MyDate {
+        println("DateIterator is called");
         val result = current
         current = current.addTimeIntervals(TimeInterval.DAY, 1)
         return result
